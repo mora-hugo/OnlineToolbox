@@ -16,22 +16,22 @@ struct ONLINETOOLBOX_API FOTCreateSessionsOptions
  GENERATED_BODY()
  
  UPROPERTY(BlueprintReadWrite)
- bool bIsInLAN;
+ bool bIsInLAN = false;
  
  UPROPERTY(BlueprintReadWrite)
- FString SessionName;
+ FString SessionName = FString();
  
  UPROPERTY(BlueprintReadWrite)
- FString HostName;
+ FString HostName = FString();
  
  UPROPERTY(BlueprintReadWrite)
- FString Map;
+ FString Map = FString();
  
  UPROPERTY(BlueprintReadWrite)
- FString SessionType;
+ FString SessionType = FString();
  
  UPROPERTY(BlueprintReadWrite)
- int NumPublicConnections;
+ int NumPublicConnections = 4;
 
  
 

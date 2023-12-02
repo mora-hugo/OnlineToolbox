@@ -10,33 +10,26 @@ struct ONLINETOOLBOX_API FOTAchievement
 {
 	GENERATED_BODY()
 
-	FString Id;
+	FString Id = FString();
 
-	/** The percentage of completion **/
 	UPROPERTY(EditAnywhere, BlueprintReadWrite, Category="Achievements", meta=(ClampMin=0, ClampMax=100))
-	double Completion;
+	double Completion = 0.0;
 	
-	/** The localized title of the achievement */
 	UPROPERTY(VisibleAnywhere, BlueprintReadOnly, Category="Achievements")
-	FText Title;
+	FText Title = FText();
 
-	/** The localized locked description of the achievement */
 	UPROPERTY(VisibleAnywhere, BlueprintReadOnly, Category="Achievements")
-	FText LockedDesc;
+	FText LockedDesc = FText();
 
-	/** The localized unlocked description of the achievement */
 	UPROPERTY(VisibleAnywhere, BlueprintReadOnly, Category="Achievements")
-	FText UnlockedDesc;
+	FText UnlockedDesc = FText();
 
-	/** Flag for whether the achievement is hidden */
 	UPROPERTY(VisibleAnywhere, BlueprintReadOnly, Category="Achievements")
-	bool bIsHidden;
+	bool bIsHidden = false;
 
-	/** The date/time the achievement was unlocked */
 	UPROPERTY(VisibleAnywhere, BlueprintReadOnly, Category="Achievements")
 	FDateTime UnlockTime;
 
-	/** Returns debugging string to print out achievement info */
 	FString ToDebugString() const
 	{
 		return FString::Printf( TEXT("Title='%s', LockedDesc='%s', UnlockedDesc='%s', bIsHidden=%s, UnlockTime=%s"),

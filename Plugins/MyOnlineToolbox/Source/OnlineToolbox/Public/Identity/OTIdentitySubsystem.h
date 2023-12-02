@@ -6,11 +6,23 @@
 #include "OnlineSubsystem.h"
 #include "Friends/OTUniqueNetId.h"
 #include "Interfaces/OnlineIdentityInterface.h"
+#include "Steamworks/Steamv153/sdk/public/steam/steam_api.h"
+#include "Steamworks/Steamv153/sdk/public/steam/isteamuser.h"
+#include "Steamworks/Steamv153/sdk/public/steam/isteamutils.h"
 #include "OTIdentitySubsystem.generated.h"
 
 DECLARE_DYNAMIC_MULTICAST_DELEGATE_TwoParams(FOTLoginCompleteDelegate, bool, bWasSuccessful, const FString, UserId);
 DECLARE_DYNAMIC_MULTICAST_DELEGATE_OneParam(FOTLogoutCompleteDelegate, bool, bWasSuccessful);
 DECLARE_DYNAMIC_MULTICAST_DELEGATE_OneParam(FOTLoginChangeDelegate, bool, bWasSuccessful);
+
+UENUM(BlueprintType)
+enum class EOTAvatarSize : uint8
+{
+	Small,
+	Medium,
+	Large
+};
+
 
 UCLASS()
 class ONLINETOOLBOX_API UOTIdentitySubsystem : public UGameInstanceSubsystem
@@ -25,9 +37,14 @@ public:
 	
 	UFUNCTION(BlueprintCallable, Category="Identity")
 	void Login(FString MyId, FString MyToken, FString MyType);
+
+	CSteamID GetLocalSteamID() const;
+
+	CSteamID GetSteamId(const FOTUniqueNetId& UniqueNetId) const;
+
+	UFUNCTION(BlueprintCallable)
+	UTexture2D * GetSteamAvatar(const FOTUniqueNetId& UniqueNetId, const EOTAvatarSize AvatarSize) const;
 	
-
-
 	UFUNCTION(BlueprintCallable, Category="Identity")
 	void AutoLogin();
 	
@@ -36,6 +53,7 @@ public:
 
 	UFUNCTION(BlueprintCallable, Category="Identity")
 	bool IsLocalPlayerLoggedIn() const;
+
 
 	UFUNCTION(BlueprintCallable, Category="Identity")
 	FOTUniqueNetId GetLocalUniqueNetId() const;
@@ -53,6 +71,7 @@ public:
 	FOTLoginChangeDelegate OnLoginChanged;
 
 private:
+	IOnlineSubsystem * OnlineSubsystem;
 	IOnlineIdentityPtr IdentityInterface;
 
 	FDelegateHandle LoginCompleteDelegateHandle;

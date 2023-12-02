@@ -18,7 +18,7 @@ struct ONLINETOOLBOX_API FOTOnlineUserPresence
 	FString Status = FString();
 
 	UPROPERTY(BlueprintReadOnly,Category="Presence Informations")
-	FString AppId;
+	FString AppId = FString("480");
 
 	static EOnlinePresenceState::Type GetPresenceStateFromCustomPresenceState(EOTOnlinePresenceStatus CustomPresenceState);
 

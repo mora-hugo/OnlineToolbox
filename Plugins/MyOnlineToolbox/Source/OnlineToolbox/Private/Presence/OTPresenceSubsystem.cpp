@@ -51,7 +51,7 @@ void UOTPresenceSubsystem::QueryPresences(const TArray<FOTUser>& Users)
 	PresenceInterface->QueryPresence(
 	*IdentityInterface->GetUniquePlayerId(0).Get(),
 	UniqueNetIds,
-	OnPresenceUpdatedCompleteDelegate);
+	OnPresenceQueryCompleteDelegate);
 }
 
 void UOTPresenceSubsystem::GetCachedPresences(TArray<FOTOnlineUserPresence>& OutPresences)

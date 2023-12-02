@@ -17,11 +17,12 @@ void UOTStatisticsSubsystem::Initialize(FSubsystemCollectionBase& Collection)
 	const IOnlineSubsystem* Subsystem = IOnlineSubsystem::Get();
 	checkf(Subsystem != nullptr, TEXT("Unable to get the SubSytem"));
 
+	
 	StatsInterface = Subsystem->GetStatsInterface();
-	if(!ensureMsgf(StatsInterface.IsValid(), TEXT("Unable to get the Stats Interface"))) return;
+	if(!ensureMsgf(StatsInterface, TEXT("Unable to get the Stats Interface"))) return;
 
 	IdentityInterface = Subsystem->GetIdentityInterface();
-	if(!ensureMsgf(IdentityInterface.IsValid(), TEXT("Unable to get the Identity interface"))) return;
+	if(!ensureMsgf(IdentityInterface, TEXT("Unable to get the Identity interface"))) return;
 }
 
 void UOTStatisticsSubsystem::Deinitialize()

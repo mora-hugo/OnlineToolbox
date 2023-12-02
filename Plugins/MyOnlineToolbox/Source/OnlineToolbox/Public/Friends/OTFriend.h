@@ -17,7 +17,7 @@ struct ONLINETOOLBOX_API FOTFriend
 	TSharedPtr<FOnlineFriend> OnlineFriend;
 
 	UPROPERTY(BlueprintReadOnly,Category="Friend Informations")
-	FOTUser User;
+	FOTUser User = FOTUser();
 
 	UPROPERTY(BlueprintReadOnly)
 	UTexture2D * Avatar;

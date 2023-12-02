@@ -12,7 +12,7 @@ struct ONLINETOOLBOX_API FOTUser
 	GENERATED_BODY()
 
 	UPROPERTY(BlueprintReadOnly,Category="User Informations")
-	FString Name;
+	FString Name = FString();
 
 	UPROPERTY(BlueprintReadOnly,Category="User Informations")
 	FOTUniqueNetId UniqueNetId;

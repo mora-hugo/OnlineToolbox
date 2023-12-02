@@ -15,11 +15,11 @@ struct ONLINETOOLBOX_API FStatReadResult
 	GENERATED_BODY()
 
 	UPROPERTY(BlueprintReadOnly)
-	FString PlayerId;
+	FString PlayerId = FString();
 	
 	UPROPERTY(BlueprintReadOnly)
-	FString StatName;
+	FString StatName = FString();
 	
 	UPROPERTY(BlueprintReadOnly)
-	int32 StatValue;
+	int32 StatValue = 0;
 };

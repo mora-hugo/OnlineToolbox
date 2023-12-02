@@ -31,7 +31,8 @@ public class OnlineToolbox : ModuleRules
 				"SlateCore",
 				"UMG",
 				"OnlineSubsystemUtils",
-				"OnlineSubsystemSteam"
+				"OnlineSubsystemSteam",
+				"Steamworks",
 			}
 			);
 			
