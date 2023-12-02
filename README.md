@@ -34,6 +34,10 @@ Ingame profile
 Friend list to invite into our party
 ![Capture d'écran 2023-11-27 230420](https://github.com/mora-hugo/OnlineToolbox/assets/100521440/f6573608-0bde-47a3-ab83-7b910cd84876)
 
+Basic demonstration of all features
+![Capture d'écran 2023-11-28 001548](https://github.com/mora-hugo/OnlineToolbox/assets/100521440/625710cf-6a49-4a39-a59b-9f64dbf7d6c6)
+
+
 
 
 
